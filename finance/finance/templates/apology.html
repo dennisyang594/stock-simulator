@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Apology
+{% endblock %}
+
+{% block main %}
+    <img alt="{{ top }}" class="border" src="http://memegen.link/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?alt=https://i.imgur.com/CsCgN7Ll.png" title="{{ top }}">
+    {% if not session.password and session.username and session.info %}
+        Click here to <a href="/register">Re-register</a>
+    {% endif %}
+
+    {% if not session.username and session.password and session.info %}
+        Click here to <a href="/register">Re-register</a>
+    {% endif %}
+
+    {% if not session.username and not session.password and session.info %}
+        Click here to <a href="/register">Re-register</a>
+    {% endif %}
+
+    {% if session.exist == 1 and session.info %}
+        Click here to <a href="/register">Re-register</a>
+    {% endif %}
+
+    {% if not session.info %}
+        Click here to <a href="/quote">search again</a>
+    {% endif %}
+{% endblock %}

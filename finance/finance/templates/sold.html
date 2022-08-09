@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Purchase Confirmation
+{% endblock %}
+
+{% block main %}
+    {{ session.shares2 }} shares of {{ session.info3.name }}({{ session.info3.symbol }}) have been sold and earned {{ session.earn|usd }}. Remaining funds: {{session.cash2|usd}}
+
+    <h1> </h1>
+    <h3>Click here to go home <a href="/">Home</a></h3>
+{% endblock %}

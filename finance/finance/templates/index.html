@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h2>Holdings</h2>
+
+    <table>
+        <thead> <!--distinguishes teh head from the body-->
+            <tr> <!-- table row-->
+                <th>Symbol</th> <!--table heading-->
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+
+        <tbody><!--table body-->
+            {% for index in indexes %}
+                {% if index.shares != 0 %}
+                    <tr>
+                        <td>{{ index.ticker }}</td>
+                        <td>{{ index.name }}</td>
+                        <td>{{ index.shares }}</td>
+                        <td>{{ index.price|usd }}</td>
+                        <td>{{ index.total|usd }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+
+        <thead> <!--distinguishes teh head from the body-->
+            <tr> <!-- table row-->
+                <th>Cash</th> <!--table heading-->
+            </tr>
+        </thead>
+
+        <tbody><!--table body-->
+
+                    <tr>
+                        <td>{{ cash|usd }}</td>
+                    </tr>
+
+        </tbody>
+
+        <thead> <!--distinguishes teh head from the body-->
+            <tr> <!-- table row-->
+                <th>Portfolio Value</th> <!--table heading-->
+            </tr>
+        </thead>
+
+        <tbody><!--table body-->
+
+                    <tr>
+                        <td>{{ total|usd }}</td>
+                    </tr>
+
+        </tbody>
+    </table>
+{% endblock %}

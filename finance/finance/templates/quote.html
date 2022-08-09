@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/quote" method="post">
+        <input autocomplete="off" autofocus name="symbol" placeholder="Symbol" type="text">
+        <input type="submit" value="Search"> <!--the button instead of saying submit, instead it will say Search-->
+    </form>
+{% endblock %}

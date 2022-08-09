@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Purchase Error
+{% endblock %}
+
+{% block main %}
+    Do not obtain enough funds. Available funds: {{session.cash|usd}}
+{% endblock %}

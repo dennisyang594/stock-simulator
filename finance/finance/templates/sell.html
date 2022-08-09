@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <select name="Symbol">
+            <option disabled selected value="">Symbol</option>
+            {% for index in indexes %}
+                <option value="{{ index.ticker }}">{{ index.ticker }}</option>
+            {% endfor %}
+
+
+        <input autocomplete="off" autofocus name="shares" placeholder="Shares" type="number">
+        <input type="submit" value="Sell"> <!--the button instead of saying submit, instead it will say Search-->
+    </form>
+{% endblock %}

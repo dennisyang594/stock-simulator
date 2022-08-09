@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h2>Holdings</h2>
+
+    <table>
+        <thead> <!--distinguishes teh head from the body-->
+            <tr> <!-- table row-->
+                <th>Symbol</th> <!--table heading-->
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody><!--table body-->
+            {% for i in history %}
+            <tr>
+                <td>{{ i.ticker }}</td>
+                <td>{{ i.shares }}</td>
+                <td>{{ i.price|usd }}</td>
+                <td>{{ i.total|usd }}</td>
+                <td>{{ i.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
